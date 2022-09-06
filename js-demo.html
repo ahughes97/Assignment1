@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" style="text/css" href="CSS/style.css">
+</head>
+
+<body>
+	<header>
+		<!--Use flexbox-->
+		<div class="flexbox-container">
+			<div class="box-1">
+				<img src="Media/global.png" alt="Logo">
+			</div>
+			
+			<div class="box-2">
+				<p class="tagline">ITWD6.408</p>
+			</div>
+			
+			<div class="box-3">
+				<div class="horizontal-nav">
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="form.html">FORMS</a></li>
+						<li><a href="xml-rss.html">XML/RSS</a></li>
+						<li class="active"><a href="js-demo.html">JAVASCRIPT</a></li>
+						<li><a href="my-research.html">RESEARCH</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="box-4">
+				<p onclick="openNav()">≡</p>
+			</div>
+		</div>
+		
+		<!--Curtain menu: collapse this menu as default when loading the page-->
+		<nav id="curtain-nav">
+			<!--Add a close button (X) hyperlink on the top left corner-->
+			<a href="javascript:void(0)" class="nav-close-button" onclick="closeNav()">❌</a>
+			<div class="curtain-nav-content">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="form.html">FORMS</a></li>
+					<li><a href="xml-rss.html">XML/RSS</a></li>
+					<li class="active"><a href="js-demo.html">JAVASCRIPT</a></li>
+					<li><a href="my-research.html">RESEARCH</a></li>	
+				</ul>
+			</div>
+		</nav>
+		
+	</header>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<!--Button section-->
+			<div class="col-12 col-md-2">
+				<div class="container-fluid">
+					<div class="row justify-content-around">
+						<!--Button 1-->						
+						<button class="col-6 col-md-12 btn btn-primary border border-dark" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button1" 
+								aria-expanded="false" aria-controls="button1">Demo 1</button>
+						<!--Button 2-->
+						<button class="col-6 col-md-12 btn btn-primary border border-dark" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button2" 
+								aria-expanded="false" aria-controls="button2">Demo 2</button>
+						<!--Button 3-->
+						<button class="col-6 col-md-12 btn btn-primary border border-dark" type="button"
+								data-bs-toggle="collapse" data-bs-target="#button3"
+								aria-expanded="false" aria-controls="button3">Demo 3</button>
+						<!--Button 4-->
+						<button class="col-6 col-md-12 btn btn-primary border border-dark" type="button"
+								data-bs-toggle="collapse" data-bs-target="#button4"
+								aria-expanded="false" aria-controls="button4">Demo 4</button>
+					</div>			
+				</div>			
+			</div>
+			
+			<!--Main content section-->
+			<div class="col-12 col-md-10">
+				<div class="row">
+				  <div class="col-12">
+					<!--Content area 1 for button 1-->
+					<div class="collapse show multi-collapse" id="button1">
+					  <div class="card card-body">
+						<p class="fs-2 fw-bold" align="center">Slideshows</p>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-12 col-md-6 bg-warning bg-opacity-25 border border-warning">
+										<section class="container" align="center">
+											<h3>Manual Slideshow</h3>
+											<h4 id="manual-slide-name">Everis Tablet</h4>
+											<img id="manual-slide-image" src="https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw842eca84/images/hi-res/2D/BE/N187117_0.jpg?sw=765&sh=765" height="200px">
+											<p id="manual-item-description">Everis 10.1 inch Android 9.0 Tablet has 3GB RAM, 32GB of expandable storage, and has WIFI and Bluetooth.</p>
+											<button onclick="previousItem()">Previous</button>
+											<button onclick="nextItem()">Next</button>
+										</section>
+									</div>
+									
+									<div class="col-12 col-md-6 bg-warning bg-opacity-25 border border-warning">
+										<section class="container" align="center">
+											<h3>Automatic Slideshow</h3>
+											<h4 id="auto-slide-name">Everis Tablet</h4>
+											<img id="auto-slide-image" src="https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw71ebf31e/images/hi-res/66/4D/N191603_0.jpg?sw=765&sh=765" height="200px">
+											<p id="item-description">Everis 10.1 inch Android 9.0 Tablet has 3GB RAM, 32GB of expandable storage, and has WIFI and Bluetooth.</p>
+										</section>
+									</div>
+								</div>
+							</div>
+					  </div>					  
+					</div>
+				  </div>
+				  
+				  <!--Content area for button 2-->
+				  <div class="col-12">
+					<div class="collapse multi-collapse" id="button2">
+					  <div class="card card-body">
+						 <p class="fs-2 fw-bold" align="center">Add New Item</p>
+						 <label>Select Item:</label>
+						 <select id="itemList" onchange="displayItem()"></select>
+						 <br>
+						 <div class="container-fluid">
+							<div class="row">
+								<div class="col-12 bg-warning bg-opacity-25 border border-warning">
+									<section class="container">
+										<h4 id="selectedItemName">Everis Tablet</h4>
+										<p id="selectedItemDescription">Everis 10.1 inch Android 9.0 Tablet has 3GB RAM, 32GB of expandable storage, and has WIFI and Bluetooth.</p>
+										<img id="selectedItemURL" src="https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw71ebf31e/images/hi-res/66/4D/N191603_0.jpg?sw=765&sh=765" height="200px">
+									</section>
+									
+									<section class="container">
+										<h4>Add new item to the existing list:</h4>
+										<label>Name:</label>
+										<input type="text" id="add-item-name" size="60" placeholder="Name">
+										<br>
+										<label>Description:</label>
+										<input type="text" id="add-item-description" size="60" placeholder="Description">
+										<br>
+										<label>Image URL:</label>
+										<input type="text" id="add-item-image-url" size="60" placeholder="Image URL">
+										<br>
+										<input type="button" value="Add To List" onclick="AddItemToList()">
+									</section>
+								</div>
+							</div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>	
+
+				  <!--Content area for button 3-->
+				  <div class="col-12">
+					<div class="collapse multi-collapse" id="button3">
+					  <div class="card card-body">
+						 <p class="fs-2 fw-bold" align="center">Add Comment</p>
+						 <section class="container">
+							<h4 id="itemsName">Everis Tablet</h4>
+							<p id="itemsDescription">Everis 10.1 inch Android 9.0 Tablet has 3GB RAM, 32GB of expandable storage, and has WIFI and Bluetooth.</p>
+							<br>
+							<h4>Comments:</h4>
+							<div id="comment-list"></div>
+							<h4>Add Comment:</h4>
+							<label>Name:</label>
+							<input type="text" id="comment_name" placeholder="Your Name" size="60">
+							<br>
+							<label>Comment:</label>
+							<br>
+							<textarea id="comment_text" cols="60" rows="10"></textarea>
+							<br>
+							<button onclick="addComment()">Post</button>
+						</section>
+							
+					  </div>
+					</div>
+				  </div>
+				</div>
+
+				  <!--Content area for button 4-->
+				  <div class="col-12">
+					<div class="collapse multi-collapse" id="button4">
+					  <div class="card card-body">
+						 <p class="fs-2 fw-bold" align="center">Vote</p>
+						 <section class="container">
+							<h4 id="add-item-name">Everis Tablet</h4>
+							<p id="add-item-description">Everis 10.1 inch Android 9.0 Tablet has 3GB RAM, 32GB of expandable storage, and has WIFI and Bluetooth.</p>
+							<img id="add-item-image-url" src="https://www.noelleeming.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-nlg-master-catalog/default/dw71ebf31e/images/hi-res/66/4D/N191603_0.jpg?sw=765&sh=765" height="200px">
+							<br>
+							<button id="likeButton" onclick="like()">&#128077;</button>
+							<p id="likeNumber" style="display: inline-block;">0</p>
+							<button id="dislikeButton" onclick="dislike()">&#128078;</button>
+							<p id="dislikeNumber" style="display: inline-block;">0</p>
+						</section>
+						 
+					  </div>
+					</div>
+				  </div>
+				</div>				
+				
+			</div>		
+		</div>
+	</div>	
+	
+	<footer>
+		Created by Alana Hughes
+	</footer>
+
+	<!--Embed JS here-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>	
+	<script type="text/javascript" src="JS/javascript.js">
+	</script>
+</body>
+
+</html>

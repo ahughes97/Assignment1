@@ -1,0 +1,447 @@
+/*MOBILE FIRST APPROACH*/
+/*Define style in this part will be applied for mobile devices*/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f4f4f4;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 1.0em; /*Use a fixed number, not a number like 16px*/
+}
+
+header {
+	background-color: #DAF7A6;
+	min-height: 10vh;
+}		
+
+footer {
+	background-color: #DAF7A6;
+	height: 10vh;
+	text-align: center;
+	
+	/*Centering both vertical and horizontal*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*Define flexbox style*/
+.flexbox-container {
+	display: flex;
+	flex-direction: row;
+	
+	background-color: #DAF7A6;
+	min-height: 5vh;
+}	
+
+.box-1 {
+	flex: 0; /*Wrap the content*/
+}	
+
+.box-2 {
+	flex: 1;
+	
+	/*Centering both vertical and horizontal*/
+	display: flex;
+	font-size: 1.5em;
+	justify-content: left;
+	align-items: center;
+}
+
+.box-3 {
+	flex: 4; /*Horizontal nav on desktop*/
+	
+	/*Centering the content both vertical and horizontal*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.box-4 {
+	flex: 1; /*Curtain menu*/
+	
+	font-size: 4.0em;
+	color: blue;
+	cursor: pointer;
+	text-align: right;
+	padding-right: 0.5em;
+}
+
+/*Horizontal nav*/
+.horizontal-nav {
+	display: none; /*Hide on mobile devices*/
+}
+
+/*Curtain menu*/
+nav {
+	padding: 10px 10px 10px 10px;
+	overflow: visible;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+}
+
+nav ul li {
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
+}
+
+nav ul li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav ul li ul li {
+	background: #555;
+	display: block;
+	font-size: 1em;
+}
+
+nav ul li ul li a {
+	display: block;
+	text-align: left;
+}
+
+nav ul li.dropdown:hover ul {
+	display: block;
+}
+
+#curtain-nav {
+	height: 70%;
+	width: 0; /*Hide it as default when loading page*/
+	padding: 0;
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	right: 0;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0, 0.9);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.curtain-nav-content {
+	/*For curtain menu*/
+	position: relative;
+	top: 15%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+	overflow: visible;
+}
+
+.nav-close-button {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 2.0em;
+	color: white;
+	text-decoration: none;
+}
+
+/*Set hover effect for items in the menu*/
+.active {
+	background-color: #FF9633;
+}
+
+li:hover:not(.active) {
+	background-color: green;
+}
+
+/*Define styles for the main area*/	
+main {
+	background-color: gray;
+	min-height: 85vh;
+	
+	/*Use CSS grid*/
+	display: grid;
+	grid-template-areas: "area-1"
+						 "area-2"
+						 "area-3"
+						 "area-4"
+						 "area-5";
+}
+
+.showcase {
+	grid-area: area-1;
+	height: 30vh;
+	background-color: white;
+	box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("../Media/javascript-code.jpg");
+
+  /* Add the blur effect */
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+
+  /* Full height */
+  height: 30vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.bio {
+	grid-area: area-2;
+	min-height: 15vh;
+	background-color: #F1C40F;
+}
+
+.avatar {
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.personal-info {
+	text-align: justify;
+}
+
+ol {
+	font-size: 1em;
+}
+
+.webtechno {
+	grid-area: area-3;
+	min-height: 15vh;
+	background-color: #EC7063;
+}
+
+.competence {
+	grid-area: area-4;
+	min-height: 15vh;
+	background-color: #DAF7A6;
+}
+
+.flip-box {
+	background-color: transparent;
+	width: 100%;
+	height: 250px;
+	perspective: 1000px; /*Remove this if don't want the 3D effect*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*This container is needed to position the front and back side*/
+.flip-box-inner {
+	position: relative;
+	height: 250px;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	text-align: center;
+	border: 1px solid #f1f1f1;
+}
+
+/*Do a horizontal flip when you move the mouse over the flip box container*/
+.flip-box:hover .flip-box-inner {
+	transform: rotateY(180deg);
+}
+
+/*Position the front and back side*/
+.flip-box-front, .flip-box-back {
+	position: absolute;
+	width: 100%;
+	height: 250px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}	
+
+/*Style the front side*/
+.flip-box-front {
+	background-color: pink;
+	color: black;
+}	
+
+/*Style the back side*/
+.flip-box-back {
+	background-color: pink;
+	color: black;
+	transform: rotateY(180deg);
+}	
+
+.comp-img {
+	width: 30%;
+	height: 75%;
+	border-radius: 100px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.back {
+	text-align: center;
+}
+
+.statement {
+	grid-area: area-5;
+	min-height: 15vh;
+	background-color: #FF7F50;
+}
+
+/*Research page*/
+.flip-box-research {
+	background-color: white;
+	width: 100%;
+	height: 450px;
+	border: 1px solid #f1f1f1;
+	perspective: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*This container is needed to position the front and back side*/
+.flip-box-research-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	text-align: center;
+}
+
+/*Do a horizontal flip when you move the mouse over the flip box container*/
+.flip-box-research:hover .flip-box-research-inner {
+	transform: rotateY(180deg);
+}
+
+/*Position the front and back side*/
+.flip-box-research-front, .flip-box-research-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}	
+
+/*Style the front side*/
+.flip-box-research-front {
+	background-color: orange;
+	color: black;
+}	
+
+/*Style the back side*/
+.flip-box-research-back {
+	background-color: orange;
+	color: black;
+	transform: rotateY(180deg);
+}	
+
+.research-img {
+	width: 70%;
+	height: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.research-back {
+	text-align: left;
+	font-size: 0.8em;
+}
+
+/*CUSTOMISE styles for big screen: tablet, laptop, desktop*/
+@media screen and (min-width: 768px) {
+	/*Set styles for big screen here*/
+	/*On big screen, nav bar is displayed horizontally*/
+	
+	/*Make horizontal nav visible*/
+	.horizontal-nav {
+		display: block;
+		background-color: #DAF7A6;
+		padding: 10px 10px 10px 10px
+	}
+	
+	.horizontal-nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	
+	.horizontal-nav ul li {
+		display: inline-block;
+		font-family: 'Oswald', sans-serif;
+		font-size: 1.0em;
+	}
+	
+	.horizontal-nav ul li a {
+		display: block;
+		color: black;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+	.horizontal-nav ul li:hover:not(.active) {
+		background-color: green;
+	}
+	
+	/*Change layout to big screen*/
+	main {
+	/*Use CSS grid*/
+	display: grid;
+	grid-template-areas: "area-1 area-1"
+						 "area-2 area-3"
+						 "area-4 area-4"
+						 "area-5 area-5";
+	grid-template-columns: 1fr 1fr;
+	}
+	
+	.flip-box-1 {
+		width: 33.3%;
+		float: left;
+	}
+	
+	.flip-box-2 {
+		width: 33.3%;
+		float: left;
+	}
+	
+	.flip-box-3 {
+		width: 33.3%;
+		float: left;
+	}
+	
+	.comp-img {
+		width: 50%;
+		height: 85%;
+	}
+}
